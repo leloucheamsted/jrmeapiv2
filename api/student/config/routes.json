@@ -55,6 +55,11 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/students/verifnumber",
+      "handler": "student.verifnumber"
     }
   ]
 }

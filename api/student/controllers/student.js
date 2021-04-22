@@ -17,7 +17,28 @@ module.exports = {
         }, process.env.JWT_SECRET);
 
 
-        ctx.send({token: token}, 200);
+       return ctx.send({token: token}, 200);
+
+
+    },
+
+    async verifnumber(ctx){
+
+        const data = ctx.request.body;
+
+        const number = data.number;
+
+        if(!number){
+            return ctx.send({message: "bas data"}, 400);
+        }
+
+        let student = await strapi.services.student.findOne({number});
+
+        if(student){
+            return ctx.send({code: 402}, 200);
+        }
+
+        return ctx.send({code: 200}, 200);
 
 
     },
