@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chapitres",
+  "info": {
+    "name": "Chapitre",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "intitule": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "private": false,
+      "required": true,
+      "unique": true
+    },
+    "lessons": {
+      "collection": "lesson"
+    }
+  }
+}

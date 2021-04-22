@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fiches",
+  "info": {
+    "name": "Fiche"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "intitule": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

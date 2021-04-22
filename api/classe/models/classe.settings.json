@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "classes",
+  "info": {
+    "name": "Classe",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "intitule": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "description": {
+      "type": "text"
+    },
+    "series": {
+      "collection": "serie",
+      "via": "classes",
+      "dominant": true
+    },
+    "subjects": {
+      "via": "classes",
+      "collection": "subject"
+    }
+  }
+}

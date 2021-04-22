@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "series",
+  "info": {
+    "name": "Serie",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "intitule": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "classes": {
+      "via": "series",
+      "collection": "classe"
+    },
+    "subjects": {
+      "via": "series",
+      "collection": "subject"
+    }
+  }
+}

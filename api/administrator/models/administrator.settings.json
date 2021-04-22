@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "administrators",
+  "info": {
+    "name": "Administrator"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "username": {
+      "type": "string"
+    },
+    "number": {
+      "type": "biginteger"
+    },
+    "password": {
+      "type": "password"
+    }
+  }
+}

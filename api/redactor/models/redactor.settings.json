@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "redactors",
+  "info": {
+    "name": "Redactor",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "number": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "password": {
+      "type": "password",
+      "required": true
+    },
+    "username": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

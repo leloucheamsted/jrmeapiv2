@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subjects",
+  "info": {
+    "name": "subject",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "intitule": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "unique": false
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "classes": {
+      "collection": "classe",
+      "via": "subjects",
+      "dominant": true
+    },
+    "series": {
+      "collection": "serie",
+      "via": "subjects",
+      "dominant": true
+    },
+    "lessons": {
+      "collection": "lesson"
+    },
+    "chapitres": {
+      "collection": "chapitres"
+    }
+  }
+}

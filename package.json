@@ -1,0 +1,36 @@
+{
+  "name": "jrmeapiv-2",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "moment": "^2.29.1",
+    "strapi": "3.5.4",
+    "strapi-admin": "3.5.4",
+    "strapi-connector-mongoose": "3.5.4",
+    "strapi-plugin-content-manager": "3.5.4",
+    "strapi-plugin-content-type-builder": "3.5.4",
+    "strapi-plugin-email": "3.5.4",
+    "strapi-plugin-upload": "3.5.4",
+    "strapi-plugin-users-permissions": "3.5.4",
+    "strapi-utils": "3.5.4"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "4d44c343-b2e8-4ac4-a71e-59648ee64351"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": "^6.0.0"
+  },
+  "license": "MIT"
+}

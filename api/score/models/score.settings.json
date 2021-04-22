@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scores",
+  "info": {
+    "name": "Score",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "score_id": {
+      "type": "uid",
+      "required": true
+    },
+    "student": {
+      "via": "scores",
+      "model": "student"
+    },
+    "lesson": {
+      "via": "scores",
+      "model": "lesson"
+    },
+    "note": {
+      "type": "json"
+    }
+  }
+}

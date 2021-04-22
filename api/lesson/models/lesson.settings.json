@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lessons",
+  "info": {
+    "name": "Lesson",
+    "description": ""
+  },
+  
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "intitule": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "fiches": {
+      "collection": "fiche"
+    },
+    "scores": {
+      "collection": "score",
+      "via": "lesson"
+    },
+    "questions": {
+      "collection": "question"
+    }
+  }
+}

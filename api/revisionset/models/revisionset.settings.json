@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "revisionsets",
+  "info": {
+    "name": "revisionset"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "revset_id": {
+      "type": "uid",
+      "required": true
+    },
+    "config": {
+      "type": "json"
+    },
+    "students": {
+      "via": "revisionset",
+      "collection": "student"
+    }
+  }
+}

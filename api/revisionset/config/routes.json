@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/revisionsets",
+      "handler": "revisionset.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/revisionsets/count",
+      "handler": "revisionset.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/revisionsets/:id",
+      "handler": "revisionset.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/revisionsets",
+      "handler": "revisionset.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/revisionsets/:id",
+      "handler": "revisionset.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/revisionsets/:id",
+      "handler": "revisionset.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

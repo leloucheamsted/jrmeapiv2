@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "students",
+  "info": {
+    "name": "Student",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "number": {
+      "type": "string",
+      "unique": true,
+      "required": false
+    },
+    "last_visit": {
+      "type": "datetime",
+      "required": false
+    },
+    "names": {
+      "type": "string"
+    },
+    "prenames": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string",
+      "default": "cameroun",
+      "required": true
+    },
+    "birthday": {
+      "type": "date",
+      "required": false
+    },
+    "etablissement": {
+      "type": "string",
+      "required": false
+    },
+    "orientation": {
+      "type": "string"
+    },
+    "password": {
+      "type": "password"
+    },
+    "pass": {
+      "type": "json"
+    },
+    "scores": {
+      "collection": "score",
+      "via": "student"
+    },
+    "revisionset": {
+      "model": "revisionset",
+      "via": "students"
+    }
+  }
+}

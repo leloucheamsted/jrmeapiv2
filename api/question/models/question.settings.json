@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "name": "Question",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "question": {
+      "type": "richtext",
+      "required": true
+    },
+    "goodAnswer": {
+      "type": "richtext",
+      "required": true
+    },
+    "answers": {
+      "type": "json",
+      "required": true
+    }
+  }
+}
