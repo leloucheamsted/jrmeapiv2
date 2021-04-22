@@ -29,9 +29,7 @@ module.exports = {
             return ctx.send({message: "Invalid credentials"}, 403);
         }
 
-        const token = jwt.sign({
-            data: {id: redactor._id }
-        }, process.env.JWT_SECRET);
+        const token = jwt.sign({id: redactor._id }, process.env.JWT_SECRET);
 
         return ctx.send({token: token}, 200);
 
