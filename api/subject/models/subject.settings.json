@@ -36,8 +36,8 @@
       "dominant": true
     },
     "series": {
-      "collection": "serie",
       "via": "subjects",
+      "collection": "serie",
       "dominant": true
     },
     "lessons": {

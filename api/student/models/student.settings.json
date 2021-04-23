@@ -58,6 +58,10 @@
     "revisionset": {
       "model": "revisionset",
       "via": "students"
+    },
+    "serie": {
+      "via": "students",
+      "model": "serie"
     }
   }
 }

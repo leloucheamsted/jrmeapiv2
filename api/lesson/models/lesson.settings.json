@@ -5,7 +5,6 @@
     "name": "Lesson",
     "description": ""
   },
-  
   "options": {
     "increments": true,
     "timestamps": true,
@@ -30,6 +29,11 @@
     },
     "questions": {
       "collection": "question"
+    },
+    "series": {
+      "via": "lessons",
+      "collection": "serie",
+      "dominant": true
     }
   }
 }

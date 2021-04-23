@@ -20,7 +20,7 @@ module.exports = async (ctx, next) => {
     const classe_id = data.classe_id;
     const city = data.city;
     const genre = data.genre;
-    const classe_intitule = data.classe_intitule;
+    const serie_id = data.serie_id;
 
     let isNumberfree = await strapi.services.student.findOne({ number }) ? false : true;
 
@@ -30,15 +30,17 @@ module.exports = async (ctx, next) => {
 
             let isValidClasseid = await strapi.services.classe.findOne({ classe_id }) ? true : false;
 
-            if (!isValidClasseid) {
 
-                if (classe_intitule && names && prenames && birthday && country_iso2 && etablissement && orientation && city && String(genre)) {
+            if (isValidClasseid) {
+
+                if (classe_intitule && names && serie_id && prenames && birthday && country_iso2 && etablissement && orientation && city && String(genre)) {
+
                     ctx.data=data;
                     return await next();
                 }
                 else{
                     ctx.send({
-                        message: 'Empty datas'
+                        message: 'Empty data'
                     }, 400);
                 }
                 

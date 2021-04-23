@@ -21,12 +21,20 @@
       "required": true
     },
     "classes": {
-      "via": "series",
-      "collection": "classe"
+      "collection": "classe",
+      "via": "series"
     },
     "subjects": {
-      "via": "series",
-      "collection": "subject"
+      "collection": "subject",
+      "via": "series"
+    },
+    "lessons": {
+      "collection": "lesson",
+      "via": "series"
+    },
+    "students": {
+      "collection": "student",
+      "via": "serie"
     }
   }
 }
