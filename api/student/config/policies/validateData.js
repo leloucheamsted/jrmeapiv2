@@ -22,11 +22,12 @@ module.exports = async (ctx, next) => {
     const genre = data.genre;
     const serie_id = data.serie_id;
 
-    let isNumberfree = await strapi.services.student.findOne({ number }) ? false : true;
+    
 
 
-    if (number.length == 9 && /^[0-9]*$/.test(number) && isNumberfree) {
-        if (password.length >= 6) {
+    if (number.length == 9 && /^[0-9]*$/.test(number) ) {
+        let isNumberfree = await strapi.services.student.findOne({ number }) ? false : true;
+        if (password.length >= 6 && isNumberfree) {
 
             let isValidClasseid = await strapi.services.classe.findOne({ classe_id }) ? true : false;
 
