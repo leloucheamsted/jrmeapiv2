@@ -31,7 +31,7 @@ module.exports = async (ctx, next) => {
         let isNumberfree = await strapi.services.student.findOne({ number }) ? false : true;
         if (password.length >= 6 && isNumberfree) {
 
-            let isValidClasseid = await strapi.services.classe.findOne({ classe_id }) ? true : false;
+            let isValidClasseid = await strapi.services.classe.findOne({ classe }) ? true : false;
 
 
             if (isValidClasseid) {
