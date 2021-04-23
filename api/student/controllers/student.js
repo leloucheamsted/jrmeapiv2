@@ -17,7 +17,7 @@ module.exports = {
         }, process.env.JWT_SECRET);
 
 
-       return ctx.send({token: token}, 200);
+       return ctx.send({token: token, user: entity}, 200);
 
 
     },
