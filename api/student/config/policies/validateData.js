@@ -40,7 +40,7 @@ module.exports = async (ctx, next) => {
                 }
                 else{
                     ctx.send({
-                        message: 'Empty data'
+                        message: 'Emptydata'
                     }, 400);
                 }
                 
