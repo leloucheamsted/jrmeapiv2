@@ -24,46 +24,48 @@ module.exports = async (ctx, next) => {
     data.serie = data.serie_id;
     data.classe = data.classe_id;
 
-    
 
 
-    if (number.length == 9 && /^[0-9]*$/.test(number) ) {
+    if (serie && names && classe && prenames && birthday && country_iso2 && etablissement && orientation && city && String(genre) && password && number) {
+        
         let isNumberfree = await strapi.services.student.findOne({ number }) ? false : true;
-        if (password.length >= 6 && isNumberfree) {
 
-            let isValidClasseid = await strapi.services.classe.findOne({ classe }) ? true : false;
+        if (number.length == 9 && /^[0-9]*$/.test(number) && isNumberfree) {
+            if (password.length >= 6) {
+
+                let isValidClasseid = await strapi.services.classe.findOne({ _id : classe }) ? true : false;
 
 
-            if (isValidClasseid) {
+                if (isValidClasseid) {
 
-                if (serie && names && classe && prenames && birthday && country_iso2 && etablissement && orientation && city && String(genre)) {
-
-                    ctx.data=data;
+                    ctx.data = data;
                     return await next();
+
                 }
-                else{
+                else {
                     ctx.send({
-                        message: 'Emptydata'
+                        message: 'Bad classe'
                     }, 400);
                 }
-                
+
             }
             else {
                 ctx.send({
-                    message: 'Bad classe'
+                    message: 'Bad password'
                 }, 400);
             }
-
         }
         else {
             ctx.send({
-                message: 'Bad password'
+                message: 'Bad number'
             }, 400);
         }
+
     }
     else {
         ctx.send({
-            message: 'Bad number'
+            message: 'data not found'
         }, 400);
     }
+
 };
