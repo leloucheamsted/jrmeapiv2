@@ -45,7 +45,7 @@ module.exports = {
 
     },
 
-    async login(){
+    async login(ctx){
 
         const data = ctx.request.body;
 
@@ -66,7 +66,7 @@ module.exports = {
 
         let isValidPassword =  await bcrypt.compare(password, student.password);
 
-        if(!isValidPassword){
+        if(isValidPassword){
             return ctx.send({message: "Invalid credentials"}, 403);
         }
 

@@ -60,6 +60,11 @@
       "method": "POST",
       "path": "/students/verifnumber",
       "handler": "student.verifnumber"
-    }
+    },
+    {
+      "method": "POST",
+      "path": "/students/login",
+      "handler": "student.login"
+    }    
   ]
 }
