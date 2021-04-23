@@ -17,10 +17,10 @@ module.exports = async (ctx, next) => {
     const country_iso2 = data.country_iso2;
     const etablissement = data.etablissement;
     const orientation = data.orientation;
-    const classe_id = data.classe_id;
+    const classe_id = data.classe;
     const city = data.city;
     const genre = data.genre;
-    const serie_id = data.serie_id;
+    const serie_id = data.serie;
 
     
 
