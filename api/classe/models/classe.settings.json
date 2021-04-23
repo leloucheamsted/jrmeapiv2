@@ -27,6 +27,10 @@
     "subjects": {
       "via": "classes",
       "collection": "subject"
+    },
+    "students": {
+      "via": "classe",
+      "collection": "student"
     }
   }
 }

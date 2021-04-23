@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
-const { login } = require('../../redactor/controllers/redactor');
 
 module.exports = {
 
