@@ -48,7 +48,8 @@ module.exports = {
     },
 
     findOne: ctx => {
-        return strapi.query('lesson').findOne(ctx.query, [
+        const { id } = ctx.params;
+        return strapi.query('lesson').findOne({_id: id}, [
             {
                 path: 'questions'
             },
