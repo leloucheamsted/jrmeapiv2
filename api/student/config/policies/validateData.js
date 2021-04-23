@@ -6,7 +6,7 @@ module.exports = async (ctx, next) => {
 
 
 
-    const data = ctx.request.body;
+    let data = ctx.request.body;
 
     const number = data.number;
     const password = data.password;
@@ -17,10 +17,12 @@ module.exports = async (ctx, next) => {
     const country_iso2 = data.country_iso2;
     const etablissement = data.etablissement;
     const orientation = data.orientation;
-    const classe_id = data.classe;
+    const classe = data.classe_id;
+    const serie = data.serie_id;
     const city = data.city;
     const genre = data.genre;
-    const serie_id = data.serie;
+    data.serie = data.serie_id;
+    data.classe = data.classe_id;
 
     
 
@@ -34,7 +36,7 @@ module.exports = async (ctx, next) => {
 
             if (isValidClasseid) {
 
-                if (classe_intitule && names && serie_id && prenames && birthday && country_iso2 && etablissement && orientation && city && String(genre)) {
+                if (serie && names && classe && prenames && birthday && country_iso2 && etablissement && orientation && city && String(genre)) {
 
                     ctx.data=data;
                     return await next();
