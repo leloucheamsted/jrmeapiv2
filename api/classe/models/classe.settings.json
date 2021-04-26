@@ -19,11 +19,6 @@
     "description": {
       "type": "text"
     },
-    "series": {
-      "via": "classes",
-      "collection": "serie",
-      "dominant": true
-    },
     "subjects": {
       "via": "classes",
       "collection": "subject"

@@ -20,6 +20,10 @@
       "type": "text",
       "required": true
     },
+    "subjects": {
+      "collection": "subject",
+      "via": "series"
+    },
     "lessons": {
       "collection": "lesson",
       "via": "series"
@@ -27,9 +31,6 @@
     "students": {
       "collection": "student",
       "via": "serie"
-    },
-    "subjects": {
-      "collection": "subject"
     }
   }
 }
