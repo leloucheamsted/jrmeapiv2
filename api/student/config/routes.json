@@ -16,10 +16,11 @@
         "policies": []
       }
     },
+    
     {
       "method": "GET",
-      "path": "/students/:id",
-      "handler": "student.findOne",
+      "path": "/students/subjects",
+      "handler": "student.subjects",
       "config": {
         "policies": []
       }
@@ -65,6 +66,6 @@
       "method": "POST",
       "path": "/students/login",
       "handler": "student.login"
-    }    
+    } 
   ]
 }
