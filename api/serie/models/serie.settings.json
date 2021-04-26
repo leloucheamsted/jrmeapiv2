@@ -5,6 +5,7 @@
     "name": "Serie",
     "description": ""
   },
+  
   "options": {
     "increments": true,
     "timestamps": true,
