@@ -20,21 +20,16 @@
       "type": "text",
       "required": true
     },
-    "classes": {
-      "collection": "classe",
-      "via": "series"
-    },
-    "subjects": {
-      "collection": "subject",
-      "via": "series"
-    },
     "lessons": {
       "collection": "lesson",
       "via": "series"
     },
     "students": {
-      "via": "serie",
-      "collection": "student"
+      "collection": "student",
+      "via": "serie"
+    },
+    "subjects": {
+      "collection": "subject"
     }
   }
 }
