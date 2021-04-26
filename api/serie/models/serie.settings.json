@@ -28,6 +28,7 @@
       "collection": "lesson",
       "via": "series"
     },
+    
     "students": {
       "collection": "student",
       "via": "serie"
