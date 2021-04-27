@@ -51,10 +51,7 @@
     {
       "method": "POST",
       "path": "/redactors/login",
-      "handler": "redactor.login",
-      "config": {
-        "policies": []
-      }
+      "handler": "redactor.login"
     },
     {
       "method": "GET",
