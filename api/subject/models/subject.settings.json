@@ -40,6 +40,10 @@
     },
     "chapitres": {
       "collection": "chapitres"
+    },
+    "series": {
+      "collection": "serie",
+      "via": "subjects"
     }
   }
 }
