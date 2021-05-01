@@ -3,7 +3,10 @@
     {
       "method": "GET",
       "path": "/classes",
-      "handler": "classe.find"
+      "handler": "classe.find",
+      "config": {
+        "policies": []
+      }
     },
     {
       "method": "GET",
