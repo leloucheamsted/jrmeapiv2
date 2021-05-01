@@ -5,6 +5,39 @@
  * to customize this controller
  */
 
+function getRandom(arr, n) {
+    var result = new Array(n),
+        len = arr.length,
+        taken = new Array(len);
+    if (n > len)
+        throw new RangeError("getRandom: more elements taken than available");
+    while (n--) {
+        var x = Math.floor(Math.random() * len);
+        result[n] = arr[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+    }
+    return result;
+}
+
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
 module.exports = {
 
     async create(ctx) {
@@ -56,5 +89,44 @@ module.exports = {
 
         return ctx.send({ message: "ok" }, 200);
 
+    },
+
+    async quiz(ctx) {
+        const { id } = ctx.params;
+
+        const { nb_question } = ctx.params;
+
+        let res=[];
+
+        let lesson = await strapi.services.lesson.findOne({ _id: id }, [
+            {
+                path: 'questions'
+            }
+        ]);
+
+        let questions = lesson.questions;
+
+        if (questions.length >= nb_question) {
+
+            questions = getRandom(questions, nb_question);
+
+            questions.forEach((question) => {
+                var s = {};
+                s.question_id = String(question._id);
+                s.question = question.question;
+
+                s.goodAnswer = question.goodAnswer;
+
+                s.answers = shuffle(question.answers);
+
+                res.push(s);
+            });
+
+            ctx.send({quizs: res}, 200);
+
+        }
+        else{
+            ctx.send({message: "Insufucient question"}, 401);
+        }
     }
 };

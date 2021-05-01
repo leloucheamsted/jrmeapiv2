@@ -18,12 +18,13 @@
     },
     {
       "method": "GET",
-      "path": "/questions/:id",
-      "handler": "question.findOne",
+      "path": "/questions/quiz/:id/:nb_question",
+      "handler": "question.quiz",
       "config": {
         "policies": []
       }
     },
+   
     {
       "method": "POST",
       "path": "/questions",
