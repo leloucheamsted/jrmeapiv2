@@ -26,6 +26,10 @@
     "students": {
       "via": "classe",
       "collection": "student"
+    },
+    "series": {
+      "via": "classe",
+      "collection": "serie"
     }
   }
 }

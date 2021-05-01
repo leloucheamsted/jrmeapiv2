@@ -9,7 +9,15 @@ module.exports = {
 
     async create(ctx) {
 
-        const data = ctx.data;
+        let data = ctx.data;
+
+        let role = await strapi.query('role', 'users-permissions').findOne({type: "student"}, []);
+
+    
+        data.role = role._id
+
+
+        console.log(role._id);
 
         let entity = await strapi.services.student.create(data);
 
@@ -78,9 +86,11 @@ module.exports = {
 
     async subjects(ctx) {
 
-        let subjects = await strapi.services.serie.findOne({_id: ctx.state.user.serie._id}, ["subjects"]);
+        console.log(ctx.state.user);
 
-        return ctx.send({ m: subjects }, 200);
+        let serie = await strapi.services.serie.findOne({_id: ctx.state.user.serie._id}, ["subjects"]);
+
+        return ctx.send({ subjects:  serie.subjects}, 200);
 
 
     },

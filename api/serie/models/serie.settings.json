@@ -5,7 +5,6 @@
     "name": "Serie",
     "description": ""
   },
-  
   "options": {
     "increments": true,
     "timestamps": true,
@@ -30,8 +29,12 @@
       "via": "series"
     },
     "students": {
-      "collection": "student",
-      "via": "serie"
+      "via": "serie",
+      "collection": "student"
+    },
+    "classe": {
+      "model": "classe",
+      "via": "series"
     }
   }
 }

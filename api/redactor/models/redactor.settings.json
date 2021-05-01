@@ -24,6 +24,10 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "role": {
+      "plugin": "users-permissions",
+      "model": "role"
     }
   }
 }
