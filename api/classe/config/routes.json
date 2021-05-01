@@ -16,12 +16,18 @@
     {
       "method": "GET",
       "path": "/classes/:id",
-      "handler": "classe.findOne"
+      "handler": "classe.findOne",
+      "config": {
+        "policies": []
+      }
     },
     {
       "method": "POST",
       "path": "/classes",
-      "handler": "classe.create"
+      "handler": "classe.create",
+      "config": {
+        "policies": []
+      }
     },
     {
       "method": "PUT",
