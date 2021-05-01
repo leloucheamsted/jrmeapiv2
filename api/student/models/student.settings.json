@@ -60,12 +60,16 @@
       "via": "students"
     },
     "serie": {
-      "via": "students",
-      "model": "serie"
+      "model": "serie",
+      "via": "students"
     },
     "classe": {
       "model": "classe",
       "via": "students"
+    },
+    "role": {
+      "plugin": "users-permissions",
+      "model": "role"
     }
   }
 }

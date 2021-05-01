@@ -11,6 +11,8 @@ module.exports = {
         const number = data.number;
         let password = data.password;
 
+        
+
 
         if(!password){
             return ctx.send({message: "Invalid password"}, 403);
@@ -26,7 +28,7 @@ module.exports = {
         let isValidPassword =  await bcrypt.compare(password, redactor.password);
 
         if(!isValidPassword){
-            return ctx.send({message: "Invalid credentials"}, 403);
+            return ctx.send({message: "Invalid password"}, 403);
         }
 
         const token = jwt.sign({id: redactor._id }, process.env.JWT_SECRET);

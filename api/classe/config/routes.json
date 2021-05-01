@@ -3,10 +3,7 @@
     {
       "method": "GET",
       "path": "/classes",
-      "handler": "classe.find",
-      "config": {
-        "policies": []
-      }
+      "handler": "classe.find"
     },
     {
       "method": "GET",
@@ -19,18 +16,12 @@
     {
       "method": "GET",
       "path": "/classes/:id",
-      "handler": "classe.findOne",
-      "config": {
-        "policies": []
-      }
+      "handler": "classe.findOne"
     },
     {
       "method": "POST",
       "path": "/classes",
-      "handler": "classe.create",
-      "config": {
-        "policies": []
-      }
+      "handler": "classe.create"
     },
     {
       "method": "PUT",

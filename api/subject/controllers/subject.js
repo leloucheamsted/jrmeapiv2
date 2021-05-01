@@ -40,5 +40,17 @@ module.exports = {
             
         }
  
+    },
+
+    findOne: ctx => {
+        const { id } = ctx.params;
+        return strapi.query('subject').findOne({_id: id}, [
+            {
+                path: 'chapitres',
+                populate: {
+                    path: 'lessons',
+                },
+            }
+        ]);
     }
 };
