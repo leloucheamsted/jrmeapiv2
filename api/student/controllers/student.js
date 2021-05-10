@@ -21,9 +21,7 @@ module.exports = {
 
         let entity = await strapi.services.student.create(data);
 
-        const token = jwt.sign({
-            data: { id: entity._id }
-        }, process.env.JWT_SECRET);
+        const token = jwt.sign({ id: entity._id }, process.env.JWT_SECRET);
 
 
         return ctx.send({ token: token, user: entity }, 200);

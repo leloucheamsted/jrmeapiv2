@@ -42,9 +42,13 @@
       "collection": "chapitres"
     },
     "series": {
-      "via": "subjects",
       "collection": "serie",
+      "via": "subjects",
       "dominant": true
+    },
+    "epreuves": {
+      "via": "subject",
+      "collection": "epreuves"
     }
   }
 }

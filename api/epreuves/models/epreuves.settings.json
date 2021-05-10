@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "epreuves",
+  "info": {
+    "name": "epreuves",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "intitule": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "subject": {
+      "model": "subject",
+      "via": "epreuves"
+    }
+  }
+}
