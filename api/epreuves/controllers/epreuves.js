@@ -8,6 +8,11 @@ const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
 
 module.exports = {
 
+    type: ctx => {
+        const { type } = ctx.params;
+        return strapi.query('epreuves').find({type: type});
+    },
+
     async create(ctx) {
         let entity;
         if (ctx.is('multipart')) {

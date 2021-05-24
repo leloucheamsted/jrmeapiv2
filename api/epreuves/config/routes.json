@@ -47,6 +47,11 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/epreuves/type/:type",
+      "handler": "epreuves.type"
     }
   ]
 }
