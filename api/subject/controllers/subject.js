@@ -49,28 +49,47 @@ module.exports = {
 
     findOne: ctx => {
         const { id } = ctx.params;
-        return strapi.query('subject').findOne({ _id: id }, [
-            {
-                path: 'chapitres',
-                populate: {
-                    path: 'lessons',
+        let user = ctx.state.user;
+        if(user.role.type==='redactor'){
+            return strapi.query('subject').findOne({ _id: id, redactor: user }, [
+                {
+                    path: 'chapitres',
+                    populate: {
+                        path: 'lessons',
+                    },
                 },
-            },
-            {
-                path: 'epreuves'
-            }
-        ]);
+                {
+                    path: 'epreuves'
+                }
+            ]);
+        }
+        else{
+            return strapi.query('subject').findOne({ _id: id}, [
+                {
+                    path: 'chapitres',
+                    populate: {
+                        path: 'lessons',
+                    },
+                },
+                {
+                    path: 'epreuves'
+                }
+            ]);
+        }
+        
     },
 
     find: ctx => {
         let user = ctx.state.user;
 
-        if(user.type==='redactor'){
+        if(user.role.type==='redactor'){
             return strapi.query('subject').find({ redactor: user });
         }
 
-        if(user.type==='administrator'){
+        if(user.role.type==='administrator' || user.role.type==='student'){
             return strapi.services.subject.find();
         }
+
+
     }
 };
