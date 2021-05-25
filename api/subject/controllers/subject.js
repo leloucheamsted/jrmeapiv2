@@ -7,8 +7,8 @@
 
 module.exports = {
 
-    async create(ctx){
-        
+    async create(ctx) {
+
         const data = ctx.request.body;
 
         const intitule = data.intitule;
@@ -16,40 +16,40 @@ module.exports = {
         let serie_id = data.serie_id;
 
         let user = ctx.state.user;
-        
 
-        if(intitule && description && serie_id){
-            ctx.send({message: "Données manquantes"}, 400);
+
+        if (intitule && description && serie_id) {
+            ctx.send({ message: "Données manquantes" }, 400);
         }
 
         try {
 
-            
+
 
             let subject = await strapi.services.subject.create(data);
 
             let serie = await strapi.services.serie.findOne({ _id: serie_id });
-           
-            serie.subjects.push(subject._id);
-           
-            await strapi.services.subject.update({_id: subject._id}, {redactor: user});
-            await strapi.services.serie.update({ _id: serie_id }, {subjects: serie.subjects});
-            
 
-            return ctx.send({message: "OK"}, 200);
-            
+            serie.subjects.push(subject._id);
+
+            await strapi.services.subject.update({ _id: subject._id }, { redactor: user });
+            await strapi.services.serie.update({ _id: serie_id }, { subjects: serie.subjects });
+
+
+            return ctx.send({ message: "OK" }, 200);
+
         }
         catch (error) {
 
-            return ctx.send({message: "Une erreur c'est produite"}, 500);
-            
+            return ctx.send({ message: "Une erreur c'est produite" }, 500);
+
         }
- 
+
     },
 
     findOne: ctx => {
         const { id } = ctx.params;
-        return strapi.query('subject').findOne({_id: id}, [
+        return strapi.query('subject').findOne({ _id: id }, [
             {
                 path: 'chapitres',
                 populate: {
@@ -60,5 +60,17 @@ module.exports = {
                 path: 'epreuves'
             }
         ]);
+    },
+
+    find: ctx => {
+        let user = ctx.state.user;
+
+        if(user.type==='redactor'){
+            return strapi.services.subject.find({redactor: user});
+        }
+
+        if(user.type==='administrator'){
+            return strapi.services.subject.find();
+        }
     }
 };
