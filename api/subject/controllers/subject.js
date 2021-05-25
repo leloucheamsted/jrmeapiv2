@@ -15,21 +15,26 @@ module.exports = {
         let description = data.description;
         let serie_id = data.serie_id;
 
+        let user = ctx.state.user;
+        
+
         if(intitule && description && serie_id){
             ctx.send({message: "Données manquantes"}, 400);
         }
 
         try {
 
+            
+
             let subject = await strapi.services.subject.create(data);
 
             let serie = await strapi.services.serie.findOne({ _id: serie_id });
-
-
            
             serie.subjects.push(subject._id);
-
+           
+            await strapi.services.subject.update({_id: subject._id}, {redactor: user});
             await strapi.services.serie.update({ _id: serie_id }, {subjects: serie.subjects});
+            
 
             return ctx.send({message: "OK"}, 200);
             
