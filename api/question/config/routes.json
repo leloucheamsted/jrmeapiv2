@@ -28,10 +28,7 @@
     {
       "method": "POST",
       "path": "/questions",
-      "handler": "question.create",
-      "config": {
-        "policies": []
-      }
+      "handler": "question.create"
     },
     {
       "method": "PUT",

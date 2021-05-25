@@ -21,8 +21,8 @@
       "required": true
     },
     "subjects": {
-      "collection": "subject",
-      "via": "series"
+      "via": "series",
+      "collection": "subject"
     },
     "lessons": {
       "collection": "lesson",

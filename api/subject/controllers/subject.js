@@ -55,6 +55,9 @@ module.exports = {
                 populate: {
                     path: 'lessons',
                 },
+            },
+            {
+                path: 'epreuves'
             }
         ]);
     }

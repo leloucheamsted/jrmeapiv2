@@ -1,0 +1,57 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/epreuves",
+      "handler": "epreuves.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/epreuves/count",
+      "handler": "epreuves.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/epreuves/:id",
+      "handler": "epreuves.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/epreuves",
+      "handler": "epreuves.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/epreuves/:id",
+      "handler": "epreuves.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/epreuves/:id",
+      "handler": "epreuves.delete",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/epreuves/type/:type",
+      "handler": "epreuves.type"
+    }
+  ]
+}

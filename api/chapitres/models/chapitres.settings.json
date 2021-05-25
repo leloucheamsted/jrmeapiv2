@@ -13,14 +13,14 @@
   "attributes": {
     "intitule": {
       "type": "string",
-      "unique": true,
+      "unique": false,
       "required": true
     },
     "description": {
       "type": "text",
       "private": false,
       "required": true,
-      "unique": true
+      "unique": false
     },
     "lessons": {
       "collection": "lesson"
