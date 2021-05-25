@@ -66,7 +66,7 @@ module.exports = {
         let user = ctx.state.user;
 
         if(user.type==='redactor'){
-            return strapi.query('subject').find({ reactor: user });
+            return strapi.query('subject').find({ redactor: user });
         }
 
         if(user.type==='administrator'){
