@@ -31,5 +31,17 @@ module.exports = {
 
         
  
-    }
+    },
+
+    findOne: ctx => {
+        const { id } = ctx.params;
+        let user = ctx.state.user;
+        if(user.role.type==='redactor'){
+            return strapi.query('serie').findOne({ _id: id, redactor: user });
+        }
+        else{
+            return strapi.query('serie').findOne({ _id: id});
+        }
+        
+    },
 };

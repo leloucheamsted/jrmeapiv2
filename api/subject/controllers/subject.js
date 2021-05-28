@@ -50,7 +50,7 @@ module.exports = {
     findOne: ctx => {
         const { id } = ctx.params;
         let user = ctx.state.user;
-        if(user.role.type==='redactor'){
+        if (user.role.type === 'redactor') {
             return strapi.query('subject').findOne({ _id: id, redactor: user }, [
                 {
                     path: 'chapitres',
@@ -63,8 +63,8 @@ module.exports = {
                 }
             ]);
         }
-        else{
-            return strapi.query('subject').findOne({ _id: id}, [
+        else {
+            return strapi.query('subject').findOne({ _id: id }, [
                 {
                     path: 'chapitres',
                     populate: {
@@ -76,18 +76,38 @@ module.exports = {
                 }
             ]);
         }
-        
+
     },
 
     find: ctx => {
         let user = ctx.state.user;
 
-        if(user.role.type==='redactor'){
-            return strapi.query('subject').find({ redactor: user });
+        if (user.role.type === 'redactor') {
+            return strapi.query('subject').find({ redactor: user }, [
+                {
+                    path: 'chapitres',
+                    populate: {
+                        path: 'lessons',
+                    },
+                },
+                {
+                    path: 'epreuves'
+                }
+            ]);
         }
 
-        if(user.role.type==='administrator' || user.role.type==='student'){
-            return strapi.services.subject.find();
+        if (user.role.type === 'administrator' || user.role.type === 'student') {
+            return strapi.services.subject.find({}, [
+                {
+                    path: 'chapitres',
+                    populate: {
+                        path: 'lessons',
+                    },
+                },
+                {
+                    path: 'epreuves'
+                }
+            ]);
         }
 
 
