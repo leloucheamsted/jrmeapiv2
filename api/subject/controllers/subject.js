@@ -47,49 +47,49 @@ module.exports = {
 
     },
 
-    findOne: ctx => {
-        const { id } = ctx.params;
-        let user = ctx.state.user;
-        if(user.role.type==='redactor'){
-            return strapi.query('subject').findOne({ _id: id, redactor: user }, [
-                {
-                    path: 'chapitres',
-                    populate: {
-                        path: 'lessons',
-                    },
-                },
-                {
-                    path: 'epreuves'
-                }
-            ]);
-        }
-        else{
-            return strapi.query('subject').findOne({ _id: id}, [
-                {
-                    path: 'chapitres',
-                    populate: {
-                        path: 'lessons',
-                    },
-                },
-                {
-                    path: 'epreuves'
-                }
-            ]);
-        }
+    // findOne: ctx => {
+    //     const { id } = ctx.params;
+    //     let user = ctx.state.user;
+    //     if(user.role.type==='redactor'){
+    //         return strapi.query('subject').findOne({ _id: id, redactor: user }, [
+    //             {
+    //                 path: 'chapitres',
+    //                 populate: {
+    //                     path: 'lessons',
+    //                 },
+    //             },
+    //             {
+    //                 path: 'epreuves'
+    //             }
+    //         ]);
+    //     }
+    //     else{
+    //         return strapi.query('subject').findOne({ _id: id}, [
+    //             {
+    //                 path: 'chapitres',
+    //                 populate: {
+    //                     path: 'lessons',
+    //                 },
+    //             },
+    //             {
+    //                 path: 'epreuves'
+    //             }
+    //         ]);
+    //     }
         
-    },
+    // },
 
-    find: ctx => {
-        let user = ctx.state.user;
+    // find: ctx => {
+    //     let user = ctx.state.user;
 
-        if(user.role.type==='redactor'){
-            return strapi.query('subject').find({ redactor: user });
-        }
+    //     if(user.role.type==='redactor'){
+    //         return strapi.query('subject').find({ redactor: user });
+    //     }
 
-        if(user.role.type==='administrator' || user.role.type==='student'){
-            return strapi.services.subject.find();
-        }
+    //     if(user.role.type==='administrator' || user.role.type==='student'){
+    //         return strapi.services.subject.find();
+    //     }
 
 
-    }
+    // }
 };

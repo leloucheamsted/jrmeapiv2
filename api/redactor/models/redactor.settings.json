@@ -28,6 +28,10 @@
     "role": {
       "plugin": "users-permissions",
       "model": "role"
+    },
+    "subjects": {
+      "via": "redactor",
+      "collection": "subject"
     }
   }
 }

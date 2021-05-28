@@ -14,7 +14,7 @@
     "intitule": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "description": {
       "type": "text",
@@ -47,8 +47,12 @@
       "dominant": true
     },
     "epreuves": {
-      "via": "subject",
-      "collection": "epreuves"
+      "collection": "epreuves",
+      "via": "subject"
+    },
+    "redactor": {
+      "model": "redactor",
+      "via": "subjects"
     }
   }
 }

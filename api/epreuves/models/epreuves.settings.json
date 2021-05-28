@@ -29,8 +29,8 @@
       "required": true
     },
     "subject": {
-      "model": "subject",
-      "via": "epreuves"
+      "via": "epreuves",
+      "model": "subject"
     }
   }
 }
